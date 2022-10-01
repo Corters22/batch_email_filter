@@ -56,8 +56,8 @@ function runEnter() {
     // var inputShape = d3.select("#shape");
   
     // Get the value property of the input element
-    var stateValue = inputState.property("value");
-    var cityValue = inputCity.property("value");
+    var stateValue = inputState.property("value").toLowerCase();
+    var cityValue = inputCity.property("value").toLowerCase();
     var genderValue = inputGender.property("value");
     var speciality1Value = inputSpeciality1.property("value");
     // var shapeValue = inputShape.property("value");
@@ -72,13 +72,13 @@ function runEnter() {
     // changing the name of the list to add to the table body.
       
     if (stateValue != '') {
-      var filteredByState = rawData.filter(report => report.state === stateValue);
+      var filteredByState = rawData.filter(report => report.state.toLowerCase() === stateValue);
     }
     else {
       filteredByState = rawData;
     }
     if (cityValue != '') {
-        var filteredByCity = filteredByState.filter(report => report.city === cityValue);
+        var filteredByCity = filteredByState.filter(report => report.city.toLowerCase() === cityValue);
     }
     else {
       filteredByCity = filteredByState;
